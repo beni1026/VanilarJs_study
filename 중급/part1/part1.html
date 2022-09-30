@@ -10,17 +10,157 @@
         $('#header').load("../../header/header.html");
     })
   </script>
-  <link rel="stylesheet" href="../../index.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+    * {
+      margin: 0 auto;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .content{
+      background-color: rgb(211, 235, 255);
+      height: calc(100vh - 80px);
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      background-color: white;
+      width: 80%;
+      height: 80%;
+      border-radius: 20px;
+      padding: 40px;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text{
+      margin-top: 20px;
+      width: 100%;
+      font-size: 15px;
+      text-align: left;
+      display : flex;
+      flex-direction: row;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+
+    pre {
+      width: 30%;
+      height: 95%;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  </style>
   <title>Document</title>
 </head>
 <body>
   <div id="header"></div>
   <div class="content">
     <div class="title">
-      
-      
+      <p>💡실습 결과는 f12키를 눌러 확인해주세요💡</p>
+      <div class="text">
+        <pre>
+          <b>1. 배열 선언 및 삽입, 삭제 </b>
+          let array = new Array();
+          array = [1, 2, 3];
+          array.push(4); // 뒤에서
+          array.pop();
+          array.unshift(0);  // 앞에서
+          array.shift();
+
+          <b>2. 배열 출력하기</b>
+          - 인덱스 범위를 벗어났을 때는 undefined 출력
+          for(let i=0;i&lt;animals.length;i++){
+            console.log(animals[i]);
+          }
+          - for..in는 키값을 출력(index)
+          for(ele in animals){
+            console.log(ele);
+          }
+          - for..of는 배열 값을 출력
+          for(ele of animals){
+            console.log(ele);
+          }
+          - forEach() 활용(두번째, 세번째 인자는 생략 가능하다.)
+          animals.forEach((value, index, array) => {
+            console.log(value, index, array);
+          });
+          - spread 연산자
+          console.log(...animals);
+        </pre>
+        <pre>
+          <b>3. 배열 메서드</b>
+          1) split(기준문자, 몇개자를건지) : 문자열 잘라서 배열에 넣기
+          let s = "안 녕 하 세 요 반 갑 습 니 다";
+          s = s.split(" ", 5);
+
+          2) slice(start, end) : start~end-1까지 자름 
+          let arr = [1,2,3,4,5];
+          let slice_arr = arr.slice(0,2); 원본배열 수정 안함
+
+          3) splice(start, end) : start~end-1까지 자름 
+          let num = [1,2,3,4,5,6,7,8,9];
+          let splice_num = num.splice(5, 2); 
+          - 원본 배열 수정함.
+          - num에는 잘려진거 splice_num에는 잘린애들(6,7)
+
+          4) concat() : 배열 붙이기 
+          const myArr1 = [1,2,3,4];
+          const myArr2 = [5,6,7,8];
+          const myArr12 = myArr1.concat(myArr2);
+          console.log(myArr12);
+
+          - 문자열 붙이기
+          const str1 = "hello ";
+          const str2 = "javascript";
+          console.log(str1.concat(str2));
+
+          - 응용 배열 이어붙이기
+          const someArr = ["안녕", " 반가워", " 내", "이름은 ", "뽀로로"];
+          console.log("".concat(...someArr));
+        </pre>
+        <pre>
+          5)  indexOf("찾을 값", "시작할 위치"); 
+          - 몇번 째 인덱스에 있는지 확인(대소문자 구분함)
+          - 시작 위치와 상관없이 절대 인덱스가 출력
+          let Man = ['홍길동', '이순신', '강감찬', '김유신', '임꺽정'];
+          console.log(Man.indexOf('이순신'));
+          - 없는 값을 indexOf하면 -1 출력
+
+          - 역순으로 찾기
+          let abcStr = "abcdefghijkhik";
+          console.log(abcStr.lastIndexOf('h'));
+
+
+         6) 배열에 특정 요소가 포함되는지 확인 includes()
+          const testArr = ['a', 'b', 'c', 'd', 'e'];
+          console.log(testArr.includes('a')); // true, false로 출력
+
+         7) join() 배열 내 요소 묶기
+        - 매개변수는 각각을 묶을때 붙은 문자 없으면 default = 콤마
+        const testArr2 = ['a', 'b', 'c', 'd', 'e'];
+        - 배열 요소 내 undefined, null 있으면 빈문자열로 연결됨
+        
+        8) find() 조건에 맞는 첫번째 요소 반환, 없으면 undefined
+        const test = [56,34,89,100,90];
+        const found = test.find((e) => (e>=90));
+
+        9) filter() : 배열의 끝까지 조건에 맞는 원소 찾음
+        let rst = test.filter(ele => {
+            return ele === 3;
+        });
+
+        </pre>
+      </div>
     </div>
   </div>  
   <script src="./part1_1.js"></script>
+  <script src="./part1_2.js"></script>
 </body>
 </html>

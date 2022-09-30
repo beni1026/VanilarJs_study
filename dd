@@ -7,17 +7,76 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     $(function(){
-        $('#header').load("./header.html");
+        $('#header').load("../../header/header.html");
     })
   </script>
-  <link rel="stylesheet" href="./index.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+    * {
+      margin: 0 auto;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .content{
+      background-color: rgb(211, 235, 255);
+      height: calc(100vh - 80px);
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      background-color: white;
+      width: 80%;
+      height: 80%;
+      border-radius: 20px;
+      padding: 40px;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text{
+      margin-top: 20px;
+      width: 100%;
+      font-size: 15px;
+      text-align: left;
+      display : flex;
+      flex-direction: row;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+
+    pre {
+      width: 30%;
+      height: 95%;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  </style>
   <title>Document</title>
 </head>
 <body>
   <div id="header"></div>
   <div class="content">
-    
+    <div class="title">
+      <p>💡실습 결과는 f12키를 눌러 확인해주세요💡</p>
+      <div class="text">
+        <pre>
+        </pre>
+        <pre>
+
+        </pre>
+        <pre>
+
+        </pre>
+      </div>
+    </div>
   </div>  
-  <script src="./index.js"></script>
+  <script src="./part1_1.js"></script>
+  <script src="./part1_2.js"></script>
 </body>
 </html>
