@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  <title>Document</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  width: 100%;
+  background-color: rgb(78, 168, 209);
+  color: white;
+  position: relative;
+}
+
+.main{
+  color: white;
+  font-size: 30px;
+  width: 80%;
+  text-align: center;
+  font-weight: 600;
+}
+
+.material-symbols-outlined {
+  cursor: pointer;
+}
+
+.ul_title {
+  font-size: 20px;
+  background-color: rgb(211, 235, 255);
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+}
+
+.txt{
+  margin-left: 20px;
+}
+
+.sub {
+  display: none;
+  position: absolute;
+  top:80px;
+  left:0;
+  color: black;
+  background-color: rgb(78, 168, 209);
+  width: 10%;
+  height: calc(100vh - 80px);
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+
+ul{
+  margin-bottom: 50px;
+  padding-left: 0;
+}
+
+ul>li{
+  list-style: none;
+  width: 100%;
+  height: 40px;
+  line-height: 40px;
+}
+
+li:hover {
+  background-color: rgb(71, 116, 153);
+}
+
+a {
+  text-decoration: none;
+  padding-left: 20px;
+  color: white;
+}
+
+
+  </style>
+</head>
+<body>
+  <nav>
+    <span class="material-symbols-outlined menu">
+      menu
+    </span>
+    <div class="sub">
+      <p class="ul_title"><span class="txt">중급</span></p>
+      <ul>
+        <li><a href="/VanilarJs_study/중급/part1/part1.html">Part 1</a></li>
+        <li><a>part 2</a></li>
+        <li><a>part3</a></li>
+        <li><a>part4</a></li>
+        <li><a>part5</a></li>
+      </ul>
+      <p class="ul_title"><span class="txt">고급</span></p>
+      <ul>
+        <li><a href="./중급/part1/part1.html">part1</a></li>
+        <li><a>part2</a></li>
+        <li><a>part3</a></li>
+        <li><a>part4</a></li>
+        <li><a>part5</a></li>
+      </ul>
+    </div>
+    <div class="main"><a href="/VanilarJs_study/index.html">JavaScript Study</a></div>
+    <span class="material-symbols-outlined">
+      sentiment_satisfied
+    </span>
+  </nav>
+  <script>
+    console.log("dd");
+    const menu = document.querySelector(".menu");
+    const sub = document.querySelector(".sub");
+
+    let isclick = false;
+    menu.addEventListener("click", (e) => {
+      if(!isclick) {
+        sub.style.display = "block";
+        isclick = true;
+      }
+      else{
+        sub.style.display = "none";
+        isclick = false;
+      }
+    });
+  </script>
+</body>
+</html>

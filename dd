@@ -7,7 +7,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script>
     $(function(){
-        $('#header').load("./header/header.html");
+        $('#header').load("./header.html");
     })
   </script>
   <link rel="stylesheet" href="./index.css">
@@ -16,18 +16,7 @@
 <body>
   <div id="header"></div>
   <div class="content">
-    <div class="title">
-      자바스크립트 공부 기록용 페이지
-      <div class="imgbox">
-        <img src="./image/bear.gif" alt="">
-        <img src="./image/bear.gif" alt="">
-        <img src="./image/bear.gif" alt="">
-      </div>
-      <div class="text">
-        왼쪽 상단의 "메뉴바"를 클릭하시면 공부 순서대로 볼 수 있습니다<br/>
-        since 2022.09.28~
-      </div>
-    </div>
+    
   </div>  
   <script src="./index.js"></script>
 </body>
