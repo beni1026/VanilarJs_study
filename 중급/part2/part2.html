@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script>
+    $(function(){
+        $('#header').load("../../header/header.html");
+    })
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
+    * {
+      margin: 0 auto;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .content{
+      background-color: rgb(211, 235, 255);
+      height: calc(100vh - 80px);
+      text-align: center;
+      display: flex;
+      align-items: center;
+    }
+
+    .title {
+      background-color: white;
+      width: 80%;
+      height: 80%;
+      border-radius: 20px;
+      padding: 40px;
+      font-size: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .text{
+      margin-top: 20px;
+      width: 100%;
+      font-size: 15px;
+      text-align: left;
+      display : flex;
+      flex-direction: row;
+    }
+    p {
+      margin-bottom: 20px;
+    }
+
+    pre {
+      width: 30%;
+      height: 95%;
+      padding-bottom: 20px;
+      overflow-x: scroll;
+      overflow-y: hidden;
+    }
+  </style>
+  <title>Document</title>
+</head>
+<body>
+  <div id="header"></div>
+  <div class="content">
+    <div class="title">
+      <p>💡실습 결과는 f12키를 눌러 확인해주세요💡</p>
+      <div class="text">
+        <pre>
+          <b>1. isNaN() : 어떤 값이 숫자가 아닌지 판별(is not a number)</b>
+          앞에 !을 붙이는게 직관적, NaN의 타입도 Number이다.
+          - 숫자, true/false, null, ""(공백문자) : false
+          - 그 외 NaN, 문자열, undefined  : true
+          <b>2. NumBer.isNaN() : 기존 메서드의 문제점을 해결하고자 추가</b>
+          오로지 들어온 인자가 NaN인지 확인
+          - 오직 숫자형이고, NaN일때만 true
+          - 그 외 false 
+
+          console.log("isNaN('NaN') = " + isNaN("NaN"));  // true
+          console.log("isNaN(NaN) = " + isNaN(NaN));  // true
+          console.log("isNaN('0/0') = " + isNaN("0/0")); // true
+          console.log("isNaN(0/0) = " + isNaN(0/0)); // true
+          console.log("isNaN('홍길동') = " + isNaN("홍길동"));  // true
+          console.log("isNaN(undefined) = " + isNaN(undefined));  // true
+          console.log("isNaN('100') = " + isNaN("100"));  // false
+          console.log("isNaN('10px') = " + isNaN("10px"));  // true
+
+          console.log(Number.isNaN("NaN"));  // false
+          console.log(Number.isNaN(NaN));  // true
+          console.log(Number.isNaN("0/0")); // false
+          console.log( Number.isNaN(0/0)); // true
+          console.log(Number.isNaN("홍길동"));  // false
+          console.log( Number.isNaN(undefined));  // false
+          console.log(Number.isNaN("100"));  // false
+          console.log( Number.isNaN("10px"));  // false
+        </pre>
+        <pre>
+          특정 문자열을 배열과 객체로 변환 : Number.isNaN() 사용
+          <b>1) 문자열 -> 배열 -> 객체로 변환</b>
+          let someObj = {};
+          const someStr = "홍길동 80, 이순신 50, 강감찬 75, 김유신 90, 을지문덕 백점";
+          let strArr = someStr.split(", ");
+          for(ele of strArr){
+            let e = ele.split(" ");
+            let name = e[0];
+            let num = e[1];
+            if(!Number.isNaN(Number(num))) num = Number(num);
+            someObj[name] = num;
+          }
+          console.log(someObj);
+        </pre>
+        <pre>
+
+        </pre>
+      </div>
+    </div>
+  </div>  
+  <script src="./part2_1.js"></script>
+  <script src="./part1_2.js"></script>
+</body>
+</html>
