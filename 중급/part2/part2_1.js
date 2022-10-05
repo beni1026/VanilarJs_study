@@ -29,7 +29,6 @@ console.log(Number.isNaN(c));
 console.log(Number.isNaN(d));
 console.log(Number.isNaN(e));
 
-console.clear();
 console.log(isNaN(100));
 console.log(isNaN("10.0")); // 자동 형변환 인자에 Number()가 들어갔다고 보면됨
 console.log(isNaN("홍길동"));
@@ -86,7 +85,7 @@ console.log("Number.isNaN(undefined) = " + Number.isNaN(undefined));  // false
 console.log("Number.isNaN('100') = " + Number.isNaN("100"));  // false
 console.log("Number.isNaN('10px') = " + Number.isNaN("10px"));  // false
 
-console.clear();
+
 
 // 특정 문자열을 배열과 객체로 변환 : Number.isNaN() 사요
 // 1) 문자열 -> 배열 -> 객체로 변환
@@ -102,3 +101,66 @@ for(ele of strArr){
   someObj[name] = num;
 }
 console.log(someObj);
+
+
+
+
+let someObj2 = {};
+strArr.forEach((ele) => {
+  let e = ele.split(" ");
+  let name = e[0];
+  let num = e[1];
+  if(!Number.isNaN(Number(num))) num = Number(num);
+  someObj2[name] = num;
+})
+
+console.log(someObj2);
+
+
+// map() 메서드 : 배열 내 요소들을 반복하면서 1대 1로 매핑시켜주는 것
+// * 매핑 : 하나의 값을 다른 값으로 1대1로 매핑시켜주는 것
+
+const testArr = [1, 2, 3, 4, 5];
+const mapArr = testArr.map((val) => val*100);
+console.log(mapArr);
+// 원본 배열을 건드리지 않는다.
+
+
+// 배열 내 객체를 원하는 형태로 바꾸기
+const test = [
+  {key:'홍길동', value:80},
+  {key:'강감찬', value:70},
+  {key:'을지문덕', value:90},
+  {key:'이순신', value:50}
+] 
+
+
+const newArr = test.map((ele) => {
+  let obj = {};
+  obj[ele.key] = ele.value;
+  return obj;
+});
+console.log(newArr);
+
+
+// 구조 분해 할당
+const result = strArr.map((val) => {
+  let [k, v] = val.split(" ");
+  return {k, v: Number.isNaN(Number(v)) ? v : Number(v)};
+});
+
+console.log(result);
+
+// map()메서드와 reduce()메서드 동시에 활용
+// 문자열 -> 배열 -> 객체 변환
+
+const result2 = result.reduce((acc, obj)=> {
+  acc[obj.k] = obj.v;
+  return acc;
+}, {})
+
+console.log(result2);
+
+// 메서드 체이닝 가능!
+
+

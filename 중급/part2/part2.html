@@ -108,9 +108,49 @@
             someObj[name] = num;
           }
           console.log(someObj);
+
+          <b>forEach() 메서드 활용</b>
+          let someObj2 = {};
+          strArr.forEach((ele) => {
+            let e = ele.split(" ");
+            let name = e[0];
+            let num = e[1];
+            if(!Number.isNaN(Number(num))) num = Number(num);
+            someObj2[name] = num;
+          })
+
+          console.log(someObj2);
         </pre>
         <pre>
+          <b>map() 메서드 : 배열 내 요소들을 반복하면서 1대 1로 매핑시켜주는 것</b>
+          * 매핑 : 하나의 값을 다른 값으로 1대1로 매핑시켜주는 것
+          const testArr = [1, 2, 3, 4, 5];
+          const mapArr = testArr.map((val) => val*100);
+          console.log(mapArr);
+          - 원본 배열을 건드리지 않는다.
 
+          const test = [
+            {key:'홍길동', value:80}, {key:'강감찬', value:70},
+            {key:'을지문덕', value:90}, {key:'이순신', value:50}
+          ];
+          const newArr = test.map((ele) => {
+            let obj = {};
+            obj[ele.key] = ele.value;
+            return obj;
+          });
+
+          - 구조 분해 할당
+          const result = strArr.map((val) => {
+            let [k, v] = val.split(" ");
+            return {k, v: Number.isNaN(Number(v)) ? v : Number(v)};
+          });
+
+          - map()메서드와 reduce()메서드 동시에 활용
+          const result2 = result.reduce((acc, obj)=> {
+            acc[obj.k] = obj.v;
+            return acc;
+          }, {})
+          - 메서드 체이닝 가능!
         </pre>
       </div>
     </div>
